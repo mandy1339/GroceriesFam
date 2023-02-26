@@ -2,3 +2,4 @@ config.ini
 db_config.ini
 .vscode/
 InsertMandyUser.sql
+InsertUsers.sql

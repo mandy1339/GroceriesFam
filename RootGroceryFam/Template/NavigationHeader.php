@@ -7,7 +7,7 @@ class Navigation
         static $site_name;
         if (!isset($site_name))
         {
-            $config = parse_ini_file("$_SERVER[DOCUMENT_ROOT]/../config.ini");
+            $config = parse_ini_file(BASEDIR . "/../config.ini");
             //$site_name = '/PersonalBlogDev';
             $site_name = $config['SITE_NAME'];
         }
@@ -23,9 +23,7 @@ class Navigation
         <header>
             <nav>           
                 <ul>
-                    <li><a href="{$the_site_name}/index.php">Home</a></li>    
-                    <li><a href="{$the_site_name}/View/WriteBlog.php">Write A Blog Post</a></li>
-                    <li><a href="{$the_site_name}/View/ReadBlogs.php">Read Blog Posts</a></li>            
+                    <li><a href="{$the_site_name}/index.php">Home</a></li>             
                     <li><a href="{$the_site_name}/Controller/LogoutController.php">Log Out</a></li>           
                 </ul>
             </nav>

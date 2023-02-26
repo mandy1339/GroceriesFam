@@ -22,14 +22,16 @@ else if (isset($_COOKIE) && isset($_COOKIE['User']) && ISSET($_COOKIE['UserID'])
 # Get the document root value from configuration and save it in the super global variable
 # The config file is 2 levels back in order to ensure it's not served by the web server
 # Save the doc_root variable as static to avoid opening the config file too many times
-// static $doc_root;
-// if (!isset($doc_root))
-// {
-//     $dir = __DIR__;
-//     $config = parse_ini_file("$dir/../../config.ini");
-//     $doc_root = $config['DOCUMENT_ROOT'];
-// }
+static $doc_root;
+if (!isset($doc_root))
+{
+    $dir = __DIR__;
+    $config = parse_ini_file("$dir/../../config.ini");
+    $doc_root = $config['DOCUMENT_ROOT'];
+}
 // $_SERVER['DOCUMENT_ROOT'] = $doc_root; 
+define("BASEDIR", $doc_root, false);
+
 
 
 ?>

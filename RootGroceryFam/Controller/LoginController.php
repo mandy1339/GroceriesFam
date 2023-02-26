@@ -1,8 +1,8 @@
 <?php
 require('../Template/Initialization.php');
-require('../Data/db_util.php');
-require('../Data/user_data_service.php');
-require('../Model/user_class.php');
+require(BASEDIR . '/Data/db_util.php');
+require(BASEDIR . '/Data/UserDataService.Class.php');
+require(BASEDIR . '/Model/User.Class.php');
 
 $user_name = DBUtil::sanitize_data_from_form($_POST['input_user_name']);
 $password = DBUtil::sanitize_data_from_form($_POST['input_password']);
@@ -25,9 +25,9 @@ if (isset($dbUser) && password_verify($password, $dbUser->getPassword()))
         $_SESSION['LoginError'] = false;
     }
     $_SESSION['User'] = $dbUser->getUserName();
-    $_SESSION['UserID'] = $dbUser->getID();
+    $_SESSION['UserID'] = $dbUser->getUserID();
     setcookie('User', $dbUser->getUserName(), time() + 60 * 60 * 24 * 10, '/'); // keep user logged in for 10 days via Cookie
-    setcookie('UserID', $dbUser->getID(), time() + 60 * 60 * 24 * 10, '/'); // keep user logged in for 10 days via Cookie
+    setcookie('UserID', $dbUser->getUserID(), time() + 60 * 60 * 24 * 10, '/'); // keep user logged in for 10 days via Cookie
 
     header("Location: ../index.php");
     exit;
