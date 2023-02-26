@@ -1,9 +1,9 @@
-#Summary
+# Summary
 Web app built with php and database driven. Its purpose is to allow any member of our family to add groceries to a shared list. While shopping at the store you check the boxes of the items we already got. At the end of the shopping session the user will mark order complete and it will archive the current shopping list. 
 
 
 
-#Specific Use Cases
+# Specific Use Cases
 	• User can login
 		○ Login will last 15 days or so via cookie to avoid frequent signing in
 	• User can logout
@@ -20,7 +20,7 @@ Web app built with php and database driven. Its purpose is to allow any member o
 
 
 
-#Tables
+# Tables
 	• USERS (UserID, username, password)
 	• GROCERYITEM (ItemID, ItemDescription, IsInCart, IsInShoppingList, DateCreated)
 
@@ -39,7 +39,7 @@ Password	VARCHAR(250)
 
 
 
-#CODE ARCH DESIGN / FOLDER STRUCTURE
+# CODE ARCH DESIGN / FOLDER STRUCTURE
 GROCERYITEM DateBought will be updated when the shopping list is finalized
 GROCERYITEM IsInCart is updated to true when the checkbox is put on the item when in the store
 GROCERYITEM IsInCart is updated to false when the order is finalized
