@@ -23,6 +23,10 @@ Web app built with php and database driven. Its purpose is to allow any member o
 # Tables
 	• USERS (UserID, username, password)
 	• GROCERYITEM (ItemID, ItemDescription, IsInCart, IsInShoppingList, DateCreated)
+	- ORDER (OrderID, OrderDate, Store)
+	- ORDERITEM (OrderID, ItemID, Qty)
+
+![image](https://user-images.githubusercontent.com/23123145/221418951-1099a55f-b2ca-43b6-8ec6-f782c5110f57.png)
 
 
 GROCERYITEM	
@@ -39,11 +43,11 @@ Password	VARCHAR(250)
 
 
 
-# CODE ARCH DESIGN / FOLDER STRUCTURE
+# IMPLEMENTATION DESIGN
 GROCERYITEM DateBought will be updated when the shopping list is finalized
 GROCERYITEM IsInCart is updated to true when the checkbox is put on the item when in the store
 GROCERYITEM IsInCart is updated to false when the order is finalized
 GROCERYITEM TimesBought will be incremented for every item in the card when the order is finalized
 GROCERYITEM isInCart is updated to false when the order is finalized
 Public_html folder will contain all the public code
-![image](https://user-images.githubusercontent.com/23123145/221389556-9e332f33-e941-4431-8706-c6146608d2e5.png)
+
