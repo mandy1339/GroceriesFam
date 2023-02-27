@@ -2,6 +2,9 @@
 .FloatRight {
     float: right;    
 }
+.FloatLeft {
+    float: left;
+}
 .ColorLightRed {
     background-color: lightcoral;
 }
@@ -26,11 +29,25 @@
 .ShoppingItemTextSpan {
     vertical-align: middle;
 }
-.ShoppingItemTextBox {
+.ShoppingItemCheckBox {
     margin: 2px;
     vertical-align: middle;
-    zoom: 1.75
+    zoom: 1.75;
+
 }
 .VerticalAligntTop {
     vertical-align: top;
+}
+.CancelButtonDiv {
+    zoom: 1;
+    float: right;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    /* border-width: 2px;
+  border-color: red;
+  border-style: dashed; */
+}
+.ShoppingListSearchBox {
+    width: 72%;
+    
 }
