@@ -1,5 +1,5 @@
 <?php
-class DBUtil
+class DatabaseUtil
 {
     static function get_db_connection() 
     {

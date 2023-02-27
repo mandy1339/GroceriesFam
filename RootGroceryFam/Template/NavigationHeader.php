@@ -23,7 +23,7 @@ class Navigation
         <header>
             <nav>           
                 <ul>
-                    <li><a href="{$the_site_name}/index.php">Home</a></li>             
+                    <li><a href="{$the_site_name}/View/ShoppingList.php">Shopping List</a></li>             
                     <li><a href="{$the_site_name}/Controller/LogoutController.php">Log Out</a></li>           
                 </ul>
             </nav>

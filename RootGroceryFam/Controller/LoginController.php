@@ -1,6 +1,6 @@
 <?php
 require('../Template/Initialization.php');
-require(BASEDIR . '/Data/db_util.php');
+require(BASEDIR . '/Data/DatabaseUtil.Class.php');
 require(BASEDIR . '/Data/UserDataService.Class.php');
 require(BASEDIR . '/Model/User.Class.php');
 

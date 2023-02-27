@@ -1,10 +1,36 @@
 
 .FloatRight {
-    float: right;
+    float: right;    
 }
 .ColorLightRed {
     background-color: lightcoral;
 }
 .MarginBottom8px {
     margin-bottom: 8px;
+}
+.ScaleX1p5 {
+    zoom: 1.5;
+    /* transform: scale(1.5); */
+}
+.ScaleX2 {
+    zoom: 2;
+    /* transform: scale(2); */
+}
+.ScaleX3 {
+    zoom: 3;
+    /* transform: scale(3); */
+}
+.ScaleX4 {
+    transform: scale(4);
+}
+.ShoppingItemTextSpan {
+    vertical-align: middle;
+}
+.ShoppingItemTextBox {
+    margin: 2px;
+    vertical-align: middle;
+    zoom: 1.75
+}
+.VerticalAligntTop {
+    vertical-align: top;
 }
