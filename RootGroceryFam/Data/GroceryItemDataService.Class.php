@@ -153,7 +153,8 @@ SQL;
             UPDATE
                 GROCERYITEM
             SET
-                IsInShoppingList = FALSE
+                IsInShoppingList = FALSE,
+                IsInCart = FALSE
             WHERE
                 ItemID = ?
 SQL;
