@@ -38,4 +38,20 @@ else if (isset($_POST['hidden_process_order'])) {
     header("location: " . Navigation::get_site_name() . '/View/ShoppingList.php');
     exit;
 }
+
+# HANDLE CHECK/UNCHECK BOX -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+else if (isset($_POST['hidden_check_uncheck_item'])){
+    $item_id = $_POST['hidden_check_uncheck_item'];
+    $is_checked = isset($_POST['checkbox_groceryitem']) ? true : false;
+    
+    if($is_checked) {
+        GroceryItem::putItemWithIDInCart($item_id);
+    }
+    else {
+        GroceryItem::removeItemWithIDFromCart($item_id);
+    }
+
+    header("location: " . Navigation::get_site_name() . '/View/ShoppingList.php');
+    exit;
+}
 ?>

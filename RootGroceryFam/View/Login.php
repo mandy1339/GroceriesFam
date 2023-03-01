@@ -1,6 +1,9 @@
 <?php
 require('../Template/Initialization.php');
-# TODO If user is already logged in redirect to Index page
+require_once(BASEDIR . '/Template/NavigationHeader.php');
+require_once(BASEDIR . '/View/Styling/StyleManager.php');
+$StyleMyClass01 = StyleManager::IncludeMyStyle01();
+
 if (isset($_SESSION) && isset($_SESSION['User']) && ISSET($_SESSION['UserID']))
 {
     header ('location: ../index.php');
@@ -11,9 +14,10 @@ echo <<<HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>    
-    <title>Log In</title>
+    <title>Log In</title>    
+    $StyleMyClass01
 </head>
-<body>
+<body class="ScaleX2">
 HTML;
 
 echo "<h1>Log In</h1>";

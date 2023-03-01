@@ -5,7 +5,7 @@ class UserDataService
     static function getUserFromDBByUserName_service($user_name)
     {
         # connect to the database
-        $conn = DBUtil::get_db_connection();
+        $conn = DatabaseUtil::get_db_connection();
 
         # create the sql string for the query
         $sql = <<<SQL

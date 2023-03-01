@@ -16,6 +16,15 @@ $StyleMyClass01 = StyleManager::IncludeMyStyle01();
     <?php echo $StyleGPT1 ?>
     <?php echo $StyleGPT2 ?>   
     <?php echo $StyleMyClass01 ?>
+    <script>
+        function OnClickCheckBox(elem) {
+            console.log(elem.name);
+            var item_id = (elem.value).replace("checkbox-", "");
+            var formID = "form-" + item_id;
+            var form = document.getElementById(formID);
+            form.submit();
+        }
+    </script>
 </head>
 
 <body class="ScaleX2"> 
@@ -49,7 +58,7 @@ foreach ($listItems as $item) {
 
 <!-- PROCESS ORDER SECTION - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <br>
-<form action="<?php Navigation::get_site_name()?>/Controller/ShoppingListController.php">
+<form action="<?php echo Navigation::get_site_name()?>/View/ProcessOrder.php" method="post">
     <input type="hidden" name="hidden_process_order">
     <input type="submit" value="Process Order">
 </form>

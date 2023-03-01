@@ -1,8 +1,8 @@
 DELIMITER $$
 CREATE PROCEDURE sp_InsertNewGroceryItem
 (
-	IN Param_ItemDescription VARCHAR(250),
-    OUT InsertedID INT
+	OUT InsertedID INT,
+	IN Param_ItemDescription VARCHAR(250)    
 )
 BEGIN
 	INSERT INTO GROCERYITEM (ItemDescription, IsInCart, IsInShoppingList) VALUES

@@ -163,5 +163,57 @@ SQL;
         $stmt->execute();
         $conn->close();
     }
+
+    public static function GroceryItemDataService_putItemWithIDInCart($item_id) 
+    {
+        $conn = DatabaseUtil::get_db_connection();
+        $query = <<<SQL
+            UPDATE
+                GROCERYITEM
+            SET
+                IsInShoppingList = TRUE,
+                IsInCart = TRUE
+            WHERE
+                ItemID = ?
+SQL;
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("s", $item_id);
+        $stmt->execute();
+        $conn->close();
+    }
+
+
+    public static function GroceryItemDataService_removeItemWithIDFromCart($item_id) 
+    {
+        $conn = DatabaseUtil::get_db_connection();
+        $query = <<<SQL
+            UPDATE
+                GROCERYITEM
+            SET
+                IsInShoppingList = TRUE,
+                IsInCart = FALSE
+            WHERE
+                ItemID = ?
+SQL;
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("s", $item_id);
+        $stmt->execute();
+        $conn->close();
+    }
+
+
+    public static function GroceryItemDataService_processGroceryOrder($store_name)
+    {
+        $conn = DatabaseUtil::get_db_connection();
+        $query = <<<SQL
+            CALL sp_ProcessGroceryOrder (?)
+SQL;
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("s", $store_name);
+        $stmt->execute();
+        $stmt->close();        
+        $conn->close();
+    }
 }
+
 ?>

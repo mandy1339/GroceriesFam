@@ -4,8 +4,8 @@ require(BASEDIR . '/Data/DatabaseUtil.Class.php');
 require(BASEDIR . '/Data/UserDataService.Class.php');
 require(BASEDIR . '/Model/User.Class.php');
 
-$user_name = DBUtil::sanitize_data_from_form($_POST['input_user_name']);
-$password = DBUtil::sanitize_data_from_form($_POST['input_password']);
+$user_name = DatabaseUtil::sanitize_data_from_form($_POST['input_user_name']);
+$password = DatabaseUtil::sanitize_data_from_form($_POST['input_password']);
 
 # Check if there's a user in the db with the same user name
 # $dbUser = new User('mandy', 'secret'); #TODO get from the db

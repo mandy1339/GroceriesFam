@@ -27,7 +27,9 @@
     transform: scale(4);
 }
 .ShoppingItemTextSpan {
-    vertical-align: middle;
+    display: inline-grid;
+    align-items: center;
+    text-align: center;
 }
 .ShoppingItemCheckBox {
     margin: 2px;
@@ -48,6 +50,8 @@
   border-style: dashed; */
 }
 .ShoppingListSearchBox {
-    width: 72%;
-    
+    width: 72%;    
+}
+.CheckListDiv {
+    display: flex;
 }

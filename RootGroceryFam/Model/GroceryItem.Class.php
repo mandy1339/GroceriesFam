@@ -35,11 +35,15 @@ class GroceryItem {
     public function displayAsHTMLChecklistItem() {
         $item_id = $this->ItemID;
         $site_name = Navigation::get_site_name();
+        $checked = $this->getIsInCart() == true ? "checked" : "";
         echo <<<HTML
-        <div>
-            <input type="checkbox" name="checkbox-$item_id" class="ShoppingItemCheckBox">
-            <span class="ShoppingItemTextSpan">$this->ItemDescription</span>                
-            <form action="$site_name/Controller/ShoppingListController.php" method="post" class="CancelButtonDiv">
+        <div class="CheckListDiv">
+            <form action="$site_name/Controller/ShoppingListController.php" method="post" id="form-$item_id">
+                <input type="hidden" name="hidden_check_uncheck_item" value="$item_id">            
+                <input type="checkbox" $checked name="checkbox_groceryitem" value="$item_id" class="ShoppingItemCheckBox" onclick="OnClickCheckBox(this)">
+            </form>
+            <span class="ShoppingItemTextSpan" style="text-align: left;float: left; margin-right: auto;">$this->ItemDescription</span>                
+            <form action="$site_name/Controller/ShoppingListController.php" method="post" class="CancelButtonDiv" style="text-align: right;float: right; margin-left: auto;">
                 <input type="hidden" name="hidden_delete_item" value="$this->ItemID">
                 <input type="submit" name="delete_button-$item_id" value="X" >
             </form>            
@@ -74,6 +78,18 @@ HTML;
     
     public static function removeItemFromShoppingList($item_id) {
         GroceryItemDataService::GroceryItemDataService_removeItemFromShoppingList($item_id);
+    }
+
+    public static function putItemWithIDInCart($item_id) {
+        GroceryItemDataService::GroceryItemDataService_putItemWithIDInCart($item_id);
+    }
+
+    public static function removeItemWithIDFromCart($item_id) {
+        GroceryItemDataService::GroceryItemDataService_removeItemWithIDFromCart($item_id);
+    }
+
+    public static function processGroceryOrder($store_name) {
+        GroceryItemDataService::GroceryItemDataService_processGroceryOrder($store_name);
     }
 }
 ?>
