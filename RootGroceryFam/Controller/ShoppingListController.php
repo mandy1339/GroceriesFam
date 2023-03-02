@@ -54,4 +54,23 @@ else if (isset($_POST['hidden_check_uncheck_item'])){
     header("location: " . Navigation::get_site_name() . '/View/ShoppingList.php');
     exit;
 }
+
+# HANDLE AUTOCOMPLETE SUGGESTION SEARCHES 
+else if (isset($_POST["keyword"]) && ($_POST["keyword"] != "")) { 
+    $keyword = DatabaseUtil::sanitize_data_from_form($_POST['keyword']);
+    $itemList = GroceryItem::getShoppingItemsThatStartWith($keyword);        
+    echo "<ul id=\"grocery-list\">";
+    foreach ($itemList as $item) 
+    {
+        $itemDescription = $item->getItemDescription();
+        echo <<<HTML
+        <li
+            onClick="selectGroceryItem('$itemDescription')">
+            $itemDescription
+        </li>
+HTML;
+    }
+    echo "</ul>";
+}
+
 ?>

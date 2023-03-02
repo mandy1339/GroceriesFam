@@ -55,3 +55,26 @@
 .CheckListDiv {
     display: flex;
 }
+
+
+/* Searching CSS Styles */
+#suggestion-grocery-item-list {
+    border: none;
+}
+#grocery-list {
+    float: left;
+    list-style: none;
+    margin-top: -2.5px;
+    padding: 0;
+    width: 190px;
+    position: absolute;    
+}
+#grocery-list li {
+    padding: 10px;
+    background: #f0f0f0;
+    border-bottom: #bbb9b9 1px solid;
+}
+#grocery-list li:hover {
+    background:#2ce3d2; 
+    cursor: pointer;
+}

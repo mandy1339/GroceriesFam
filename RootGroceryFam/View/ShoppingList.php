@@ -3,28 +3,26 @@ require_once('../Template/Initialization.php');
 require_once(BASEDIR . '/Template/SecurityCheck.php');
 require_once(BASEDIR . '/Template/NavigationHeader.php');
 require_once(BASEDIR . '/View/Styling/StyleManager.php');
+require_once(BASEDIR . '/View/Javascript/JavascriptManager.php');
 require_once(BASEDIR . '/Model/GroceryItem.Class.php');
 $StyleGPT1 = StyleManager::IncludeGTPStyle01();
 $StyleGPT2 = StyleManager::IncludeGTPStyle02();
 $StyleMyClass01 = StyleManager::IncludeMyStyle01();
+$jqueryScript = JavascriptManager::includeJQueryScript();
+$onClickGroceryCheckBoxScript = JavascriptManager::includeOnClickGroceryItemCheckBoxScript();
+$groceryAutoCompleteScript = JavascriptManager::includeGroceryItemAutocompleteScript();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>    
     <title>Grocery Fam</title>    
-    <?php echo $StyleGPT1 ?>
-    <?php echo $StyleGPT2 ?>   
-    <?php echo $StyleMyClass01 ?>
-    <script>
-        function OnClickCheckBox(elem) {
-            console.log(elem.name);
-            var item_id = (elem.value).replace("checkbox-", "");
-            var formID = "form-" + item_id;
-            var form = document.getElementById(formID);
-            form.submit();
-        }
-    </script>
+    <?= $StyleGPT1 ?>
+    <?= $StyleGPT2 ?>   
+    <?= $StyleMyClass01 ?>
+    <?= $jqueryScript ?>
+    <?= $onClickGroceryCheckBoxScript ?>
+    <?= $groceryAutoCompleteScript ?>
 </head>
 
 <body class="ScaleX2"> 
@@ -37,9 +35,10 @@ echo "<h1>Shopping List</h1>";
 <!-- ADD NEW ITEM TEXT FORM - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <form action="<?php echo Navigation::get_site_name() ?>/Controller/ShoppingListController.php" method="post">
     <input type="hidden" name="hidden_add_item" value="hidden_add_item">
-    <input type="text" name="item_description" placeholder="Add Item To List" class="ShoppingListSearchBox">
+    <input type="text" name="item_description" id="item_description_box" placeholder="Add Item To List" class="ShoppingListSearchBox">
     <input type="submit" value="Add" class="FloatRight">
 </form>
+<div id="suggestion-grocery-item-list"></div>
 <hr>
 
 
